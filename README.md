@@ -5,4 +5,4 @@ Let's imagine Netflix never happened and Blockbuster's still a thing. Well, that
 ## **Project Architecture**
 ### v1.0
 
-<img src="https://user-images.githubusercontent.com/38568172/135395432-f6814b29-1bdc-454f-8ddf-dca7b34dbd37.png" width="auto" height="760">
+<img src="https://user-images.githubusercontent.com/38568172/135789947-7981ffbe-2de6-4bf0-abd7-80b0c017758c.png" width="auto" height="760">
