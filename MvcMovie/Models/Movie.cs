@@ -21,5 +21,18 @@ namespace MvcMovie.Models {
         [DataType(DataType.Date)]
         public DateTime releaseDate {set; get;}
 
+        [Display(Name = "Rate")]
+        [Column(TypeName = "")]
+        public float rate {set; get;} = 0;
+
+        [Display(Name = "Status")]
+        public boolean status {set; get;}
+
+        [Display(Name = "Comments")]
+        public List<Comment> comments {set; get;}
+
+        [Display(Name = "Rents")]
+        public List<Rent> rents {set; get;}
+
     }
 }
