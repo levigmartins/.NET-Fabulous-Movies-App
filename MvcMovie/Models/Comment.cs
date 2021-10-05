@@ -1,14 +1,18 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MvcMovie.Models {
-    public class Rent {
+    public class Comment {
         
-        public int id {set; get;} // Object primary key
+        public int CommentID {set; get;} // Object primary key
 
         [Display(Name = "User")]        
-        public string userID {set; get;}
+        public string UserID {set; get;}
+
+        [Display(Name = "Movie")]        
+        public string MovieID {set; get;}
 
         [Display(Name = "Title")]        
         public string title {set; get;}

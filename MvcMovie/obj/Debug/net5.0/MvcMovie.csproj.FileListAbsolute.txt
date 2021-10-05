@@ -172,3 +172,13 @@ C:\git\dotnet_app\.NET-APP\MvcMovie\obj\Debug\net5.0\Razor\Views\Movies\Delete.c
 C:\git\dotnet_app\.NET-APP\MvcMovie\obj\Debug\net5.0\Razor\Views\Movies\Details.cshtml.g.cs
 C:\git\dotnet_app\.NET-APP\MvcMovie\obj\Debug\net5.0\Razor\Views\Movies\Edit.cshtml.g.cs
 C:\git\dotnet_app\.NET-APP\MvcMovie\obj\Debug\net5.0\Razor\Views\Movies\Index.cshtml.g.cs
+C:\git\dotnet_app\.NET-APP\MvcMovie\obj\Debug\net5.0\Razor\Views\Rent\Create.cshtml.g.cs
+C:\git\dotnet_app\.NET-APP\MvcMovie\obj\Debug\net5.0\Razor\Views\Rent\Delete.cshtml.g.cs
+C:\git\dotnet_app\.NET-APP\MvcMovie\obj\Debug\net5.0\Razor\Views\Rent\Details.cshtml.g.cs
+C:\git\dotnet_app\.NET-APP\MvcMovie\obj\Debug\net5.0\Razor\Views\Rent\Edit.cshtml.g.cs
+C:\git\dotnet_app\.NET-APP\MvcMovie\obj\Debug\net5.0\Razor\Views\Rent\Index.cshtml.g.cs
+C:\git\dotnet_app\.NET-APP\MvcMovie\obj\Debug\net5.0\Razor\Views\Comment\Create.cshtml.g.cs
+C:\git\dotnet_app\.NET-APP\MvcMovie\obj\Debug\net5.0\Razor\Views\Comment\Delete.cshtml.g.cs
+C:\git\dotnet_app\.NET-APP\MvcMovie\obj\Debug\net5.0\Razor\Views\Comment\Details.cshtml.g.cs
+C:\git\dotnet_app\.NET-APP\MvcMovie\obj\Debug\net5.0\Razor\Views\Comment\Edit.cshtml.g.cs
+C:\git\dotnet_app\.NET-APP\MvcMovie\obj\Debug\net5.0\Razor\Views\Comment\Index.cshtml.g.cs

@@ -9,22 +9,22 @@ using MvcMovie.Models;
 
 namespace MvcMovie.Controllers
 {
-    public class MoviesController : Controller
+    public class RentController : Controller
     {
         private readonly MvcMovieContext _context;
 
-        public MoviesController(MvcMovieContext context)
+        public RentController(MvcMovieContext context)
         {
             _context = context;
         }
 
-        // GET: Movies
+        // GET: Rent
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Movie.ToListAsync());
+            return View(await _context.Rent.ToListAsync());
         }
 
-        // GET: Movies/Details/5
+        // GET: Rent/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -32,39 +32,39 @@ namespace MvcMovie.Controllers
                 return NotFound();
             }
 
-            var movie = await _context.Movie
-                .FirstOrDefaultAsync(m => m.id == id);
-            if (movie == null)
+            var rent = await _context.Rent
+                .FirstOrDefaultAsync(m => m.RentID == id);
+            if (rent == null)
             {
                 return NotFound();
             }
 
-            return View(movie);
+            return View(rent);
         }
 
-        // GET: Movies/Create
+        // GET: Rent/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Movies/Create
+        // POST: Rent/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,title,genre,price,releaseDate,rate,status")] Movie movie)
+        public async Task<IActionResult> Create([Bind("RentID,rentStartDate,rentEndDate,price")] Rent rent)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(movie);
+                _context.Add(rent);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(movie);
+            return View(rent);
         }
 
-        // GET: Movies/Edit/5
+        // GET: Rent/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -72,22 +72,22 @@ namespace MvcMovie.Controllers
                 return NotFound();
             }
 
-            var movie = await _context.Movie.FindAsync(id);
-            if (movie == null)
+            var rent = await _context.Rent.FindAsync(id);
+            if (rent == null)
             {
                 return NotFound();
             }
-            return View(movie);
+            return View(rent);
         }
 
-        // POST: Movies/Edit/5
+        // POST: Rent/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,title,genre,price,releaseDate,rate,status")] Movie movie)
+        public async Task<IActionResult> Edit(int id, [Bind("RentID,rentStartDate,rentEndDate,price")] Rent rent)
         {
-            if (id != movie.id)
+            if (id != rent.RentID)
             {
                 return NotFound();
             }
@@ -96,12 +96,12 @@ namespace MvcMovie.Controllers
             {
                 try
                 {
-                    _context.Update(movie);
+                    _context.Update(rent);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!MovieExists(movie.id))
+                    if (!RentExists(rent.RentID))
                     {
                         return NotFound();
                     }
@@ -112,10 +112,10 @@ namespace MvcMovie.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(movie);
+            return View(rent);
         }
 
-        // GET: Movies/Delete/5
+        // GET: Rent/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -123,30 +123,30 @@ namespace MvcMovie.Controllers
                 return NotFound();
             }
 
-            var movie = await _context.Movie
-                .FirstOrDefaultAsync(m => m.id == id);
-            if (movie == null)
+            var rent = await _context.Rent
+                .FirstOrDefaultAsync(m => m.RentID == id);
+            if (rent == null)
             {
                 return NotFound();
             }
 
-            return View(movie);
+            return View(rent);
         }
 
-        // POST: Movies/Delete/5
+        // POST: Rent/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var movie = await _context.Movie.FindAsync(id);
-            _context.Movie.Remove(movie);
+            var rent = await _context.Rent.FindAsync(id);
+            _context.Rent.Remove(rent);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool MovieExists(int id)
+        private bool RentExists(int id)
         {
-            return _context.Movie.Any(e => e.id == id);
+            return _context.Rent.Any(e => e.RentID == id);
         }
     }
 }

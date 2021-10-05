@@ -13,4 +13,8 @@ using MvcMovie.Models;
         }
 
         public DbSet<MvcMovie.Models.Movie> Movie { get; set; }
+
+        public DbSet<MvcMovie.Models.Rent> Rent { get; set; }
+
+        public DbSet<MvcMovie.Models.Comment> Comment { get; set; }
     }
