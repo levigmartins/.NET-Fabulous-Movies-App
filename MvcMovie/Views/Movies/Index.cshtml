@@ -11,7 +11,10 @@
 </p>
 <table class="table">
     <thead>
-        <tr>
+        <tr >
+            <th style="width: 20%;">
+               
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.title)
             </th>
@@ -24,7 +27,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.releaseDate)
             </th>
-            <th>
+            <th style="width: 15%;">
                 @Html.DisplayNameFor(model => model.rate)
             </th>
             <th>
@@ -36,6 +39,9 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <td align="center">
+                <img src="@item.url" style="width: 50%; height: auto;"/>            
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.title)
             </td>
@@ -43,12 +49,13 @@
                 @Html.DisplayFor(modelItem => item.genre)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.price)
+                $@Html.DisplayFor(modelItem => item.price)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.releaseDate)
             </td>
-            <td>
+            <td style="display: flex; flex-direction: row">
+                <img src="/src/star-icon.png" style="width: 15%; height: 1%; margin-right: 5%"/>
                 @Html.DisplayFor(modelItem => item.rate)
             </td>
             <td>

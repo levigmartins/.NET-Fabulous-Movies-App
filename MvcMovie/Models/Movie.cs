@@ -11,6 +11,8 @@ namespace MvcMovie.Models {
         [Display(Name = "Title")]
         public string title {set; get;}
 
+        public string url {set; get;}
+
         [Display(Name = "Genre")]
         public string genre {set; get;}
 
