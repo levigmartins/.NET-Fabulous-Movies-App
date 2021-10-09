@@ -6,8 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace MvcMovie.Models {
     public class Movie {
         
-        [Key]
-        public int id {set; get;} // Object primary key
+        public int MovieID {set; get;} // Object primary key
 
         [Display(Name = "Title")]
         public string title {set; get;}

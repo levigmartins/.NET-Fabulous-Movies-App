@@ -38,8 +38,6 @@ C:\git\dotnet_app\.NET-APP\MvcMovie\obj\Debug\net5.0\ref\MvcMovie.dll
 C:\git\dotnet_app\.NET-APP\MvcMovie\obj\Debug\net5.0\MvcMovie.pdb
 C:\git\dotnet_app\.NET-APP\MvcMovie\obj\Debug\net5.0\MvcMovie.genruntimeconfig.cache
 C:\git\dotnet_app\.NET-APP\MvcMovie\obj\Debug\net5.0\MvcMovie.csproj.CopyComplete
-C:\git\dotnet_app\.NET-APP\MvcMovie\obj\Debug\net5.0\Razor\Views\HelloWorld\Index.cshtml.g.cs
-C:\git\dotnet_app\.NET-APP\MvcMovie\obj\Debug\net5.0\Razor\Views\HelloWorld\Welcome.cshtml.g.cs
 C:\git\dotnet_app\.NET-APP\MvcMovie\bin\Debug\net5.0\Humanizer.dll
 C:\git\dotnet_app\.NET-APP\MvcMovie\bin\Debug\net5.0\Microsoft.AspNetCore.Razor.Language.dll
 C:\git\dotnet_app\.NET-APP\MvcMovie\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll

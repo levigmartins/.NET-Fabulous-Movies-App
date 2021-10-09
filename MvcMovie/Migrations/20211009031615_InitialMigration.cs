@@ -3,53 +3,26 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MvcMovie.Migrations
 {
-    public partial class ComplexDataModel : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterColumn<decimal>(
-                name: "price",
-                table: "Movie",
-                type: "money",
-                nullable: false,
-                oldClrType: typeof(decimal),
-                oldType: "TEXT");
-
-            migrationBuilder.AddColumn<float>(
-                name: "rate",
-                table: "Movie",
-                type: "REAL",
-                nullable: false,
-                defaultValue: 0f);
-
-            migrationBuilder.AddColumn<bool>(
-                name: "status",
-                table: "Movie",
-                type: "INTEGER",
-                nullable: false,
-                defaultValue: false);
-
             migrationBuilder.CreateTable(
-                name: "Comment",
+                name: "Movie",
                 columns: table => new
                 {
-                    CommentID = table.Column<int>(type: "INTEGER", nullable: false)
+                    MovieID = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    UserID = table.Column<string>(type: "TEXT", nullable: true),
-                    MovieID = table.Column<string>(type: "TEXT", nullable: true),
                     title = table.Column<string>(type: "TEXT", nullable: true),
-                    description = table.Column<string>(type: "TEXT", nullable: true),
-                    Movieid = table.Column<int>(type: "INTEGER", nullable: true)
+                    genre = table.Column<string>(type: "TEXT", nullable: true),
+                    price = table.Column<decimal>(type: "money", nullable: false),
+                    releaseDate = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    rate = table.Column<float>(type: "REAL", nullable: false),
+                    status = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Comment", x => x.CommentID);
-                    table.ForeignKey(
-                        name: "FK_Comment_Movie_Movieid",
-                        column: x => x.Movieid,
-                        principalTable: "Movie",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Restrict);
+                    table.PrimaryKey("PK_Movie", x => x.MovieID);
                 });
 
             migrationBuilder.CreateTable(
@@ -68,20 +41,43 @@ namespace MvcMovie.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Comment",
+                columns: table => new
+                {
+                    CommentID = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    UserID = table.Column<string>(type: "TEXT", nullable: true),
+                    MovieID = table.Column<string>(type: "TEXT", nullable: true),
+                    title = table.Column<string>(type: "TEXT", nullable: true),
+                    description = table.Column<string>(type: "TEXT", nullable: true),
+                    MovieID1 = table.Column<int>(type: "INTEGER", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Comment", x => x.CommentID);
+                    table.ForeignKey(
+                        name: "FK_Comment_Movie_MovieID1",
+                        column: x => x.MovieID1,
+                        principalTable: "Movie",
+                        principalColumn: "MovieID",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "MovieRent",
                 columns: table => new
                 {
-                    moviesid = table.Column<int>(type: "INTEGER", nullable: false),
+                    moviesMovieID = table.Column<int>(type: "INTEGER", nullable: false),
                     rentsRentID = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MovieRent", x => new { x.moviesid, x.rentsRentID });
+                    table.PrimaryKey("PK_MovieRent", x => new { x.moviesMovieID, x.rentsRentID });
                     table.ForeignKey(
-                        name: "FK_MovieRent_Movie_moviesid",
-                        column: x => x.moviesid,
+                        name: "FK_MovieRent_Movie_moviesMovieID",
+                        column: x => x.moviesMovieID,
                         principalTable: "Movie",
-                        principalColumn: "id",
+                        principalColumn: "MovieID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_MovieRent_Rent_rentsRentID",
@@ -92,9 +88,9 @@ namespace MvcMovie.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Comment_Movieid",
+                name: "IX_Comment_MovieID1",
                 table: "Comment",
-                column: "Movieid");
+                column: "MovieID1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_MovieRent_rentsRentID",
@@ -111,23 +107,10 @@ namespace MvcMovie.Migrations
                 name: "MovieRent");
 
             migrationBuilder.DropTable(
+                name: "Movie");
+
+            migrationBuilder.DropTable(
                 name: "Rent");
-
-            migrationBuilder.DropColumn(
-                name: "rate",
-                table: "Movie");
-
-            migrationBuilder.DropColumn(
-                name: "status",
-                table: "Movie");
-
-            migrationBuilder.AlterColumn<decimal>(
-                name: "price",
-                table: "Movie",
-                type: "TEXT",
-                nullable: false,
-                oldClrType: typeof(decimal),
-                oldType: "money");
         }
     }
 }

@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MvcMovie.Migrations
 {
     [DbContext(typeof(MvcMovieContext))]
-    [Migration("20211005062026_ComplexDataModel")]
-    partial class ComplexDataModel
+    [Migration("20211009031615_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -19,13 +19,13 @@ namespace MvcMovie.Migrations
 
             modelBuilder.Entity("MovieRent", b =>
                 {
-                    b.Property<int>("moviesid")
+                    b.Property<int>("moviesMovieID")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("rentsRentID")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("moviesid", "rentsRentID");
+                    b.HasKey("moviesMovieID", "rentsRentID");
 
                     b.HasIndex("rentsRentID");
 
@@ -41,7 +41,7 @@ namespace MvcMovie.Migrations
                     b.Property<string>("MovieID")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("Movieid")
+                    b.Property<int?>("MovieID1")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("UserID")
@@ -55,14 +55,14 @@ namespace MvcMovie.Migrations
 
                     b.HasKey("CommentID");
 
-                    b.HasIndex("Movieid");
+                    b.HasIndex("MovieID1");
 
                     b.ToTable("Comment");
                 });
 
             modelBuilder.Entity("MvcMovie.Models.Movie", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<int>("MovieID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -84,7 +84,7 @@ namespace MvcMovie.Migrations
                     b.Property<string>("title")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("id");
+                    b.HasKey("MovieID");
 
                     b.ToTable("Movie");
                 });
@@ -113,7 +113,7 @@ namespace MvcMovie.Migrations
                 {
                     b.HasOne("MvcMovie.Models.Movie", null)
                         .WithMany()
-                        .HasForeignKey("moviesid")
+                        .HasForeignKey("moviesMovieID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -128,7 +128,7 @@ namespace MvcMovie.Migrations
                 {
                     b.HasOne("MvcMovie.Models.Movie", null)
                         .WithMany("comments")
-                        .HasForeignKey("Movieid");
+                        .HasForeignKey("MovieID1");
                 });
 
             modelBuilder.Entity("MvcMovie.Models.Movie", b =>
