@@ -1,10 +1,10 @@
 @model IEnumerable<MvcMovie.Models.Movie>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Library";
 }
 
-<h1>Index</h1>
+<h1>Library</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -59,6 +59,10 @@
                 @Html.DisplayFor(modelItem => item.rate)
             </td>
             <td>
+                @if(@item.status==true)
+                {
+                    <span style="color: green;">Available</span>
+                }
                 @Html.DisplayFor(modelItem => item.status)
             </td>
             <td>

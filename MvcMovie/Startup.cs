@@ -26,6 +26,8 @@ namespace MvcMovie {
             
             services.AddControllersWithViews();
 
+            services.AddControllersWithViews().AddRazorRuntimeCompilation(); 
+
             services.AddDbContext<MvcMovieContext>(options => {
 
                 var connectionString = Configuration.GetConnectionString("MvcMovieContext");
